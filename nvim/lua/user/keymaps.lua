@@ -1,5 +1,4 @@
 vim.g.mapleader=' '
-
 --WINDOWS
 -- Vertical split
 vim.keymap.set('n', '<leader>+',vim.cmd.vs)
@@ -46,3 +45,28 @@ vim.keymap.set('n','<S-Down>', vim.cmd.buffers)
 vim.keymap.set('n','<S-Up>',':buffer') 
 --Delete  buffer
 vim.keymap.set('n','<S-Del>',vim.cmd.bdelete)
+
+-- Omni complete
+--vim.keymap.set('i', '<Tab>','<C-x><C-o>')
+-- Save file on exit insert and normal mode
+--vim.keymap.set('i', '<C-c>','<Esc>:wa<CR>')
+--vim.keymap.set('n', '<C-c>','<Esc>:wa<CR>')
+--Show keymaps
+vim.keymap.set('n', '<leader>?', vim.cmd.map)
+--Replace word under the cursor
+vim.keymap.set('n','<leader>r',':%s/<C-r><C-w>//g<Left><Left>')
+--Find file
+vim.keymap.set('n', '<leader>f',':find')
+--Netrw File Explorer
+vim.keymap.set('n','<leader>e',':Lex 30<CR>')
+--Toggle list
+vim.keymap.set('n','<F3>',':set list!<CR>')
+--Togle highlight search
+vim.keymap.set('n','<F4>', ':set hls!<CR>')
+
+
+-- VISUAL MODE
+-- Replace
+vim.keymap.set('v','<leader>r',':s/')
+--Yank selection to clipboard
+vim.keymap.set('v','<leader>y','"+y')

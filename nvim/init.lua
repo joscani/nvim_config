@@ -16,12 +16,12 @@ end
 require("user")
 require("user.options")
 require("user.keymaps")
-
 -- lazyvim after user 
 
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("user.plugins")
 
--- Nvim R options and shortcuts
+-- Nvim R and cmp options and shortcuts
 
+require("user.cmp_setup")
 require("user.nvim_r_opt")
