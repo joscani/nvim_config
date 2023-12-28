@@ -13,4 +13,7 @@ return {
   { 'hrsh7th/cmp-path'}, 
   { 'hrsh7th/cmp-cmdline'}, 
   { 'hrsh7th/nvim-cmp'},
+  {'folke/tokyonight.nvim', lazy = false, priority = 1000, opts = {},}, 
+  {'hzchirs/vim-material', lazy  = false}, 
+  {"williamboman/mason.nvim", lazy = false},
 }

@@ -11,11 +11,13 @@ if not vim.loop.fs_stat(lazypath) then
   })
 end
 
--- my init lua file 
+
 
 require("user")
 require("user.options")
 require("user.keymaps")
+
+
 -- lazyvim after user 
 
 vim.opt.rtp:prepend(lazypath)
@@ -25,3 +27,9 @@ require("lazy").setup("user.plugins")
 
 require("user.cmp_setup")
 require("user.nvim_r_opt")
+require("user.colorscheme")
+require("user.mason_setup")
+
+
+
+

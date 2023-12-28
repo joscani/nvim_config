@@ -4,6 +4,9 @@ vim.opt.number=true		          --Show line numbers
 vim.opt.wrap=false		          --Do not wrap text
 vim.opt.complete="."		        --Only use current buffer for autocomplete
 
+
+
+--:vim.cmd[[colorscheme lunar]]
 -- Show menu event with one entry, 
 
 vim.opt.completeopt="menuone,noselect,noinsert,preview"

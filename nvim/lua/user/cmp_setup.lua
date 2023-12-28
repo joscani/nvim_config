@@ -1,8 +1,8 @@
-require'cmp'.setup {
-  sources = {
-    { name = 'cmp_nvim_r' },
-  }
-}
+--require'cmp'.setup {
+--  sources = {
+--    { name = 'cmp_nvim_r' },
+--  }
+--}
 
 require'cmp_nvim_r'.setup({
   filetypes = {'r', 'rmd', 'quarto'},
