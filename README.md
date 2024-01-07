@@ -93,3 +93,10 @@ vim.g.R_objbr_place = 'console,above'
 vim.g.R_editor_w = 30
 vim.g.R_show_args = 1
 ```
+
+Para tener bien la confi de cmp y lsp es importante tener esto en ~/.Rprofile
+
+```r
+options(languageserver.server_capabilities =
+        list(completionProvider = FALSE, completionItemResolve = FALSE))
+```
