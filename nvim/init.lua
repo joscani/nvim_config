@@ -23,13 +23,18 @@ require("user.keymaps")
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("user.plugins")
 
--- Nvim R and cmp options and shortcuts
-
-require("user.cmp_setup")
-require("user.nvim_r_opt")
+-- colorschemes and mason
 require("user.colorscheme")
 require("user.mason_setup")
 
+-- Nvim R and cmp options and shortcuts
+
+require("user.cmp_setup")
+require("user.lspconfig_setup")
+require("user.nvim_r_opt")
+require("user.quarto_opts")
+
+-- Lsp config
 
 
 

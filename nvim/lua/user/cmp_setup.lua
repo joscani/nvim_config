@@ -35,6 +35,7 @@ cmp.setup({
         { name = 'vsnip' },
         { name = 'cmp_zotcite' },
         { name = 'cmp_nvim_r' },
+        { name = 'otter' },
         { name = 'nvim_lsp' },
         { name = 'path', option = { trailing_slash = true } },
     }),

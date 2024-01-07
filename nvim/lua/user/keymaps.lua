@@ -70,3 +70,4 @@ vim.keymap.set('n','<F4>', ':set hls!<CR>')
 vim.keymap.set('v','<leader>r',':s/')
 --Yank selection to clipboard
 vim.keymap.set('v','<leader>y','"+y')
+
