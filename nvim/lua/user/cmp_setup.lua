@@ -20,9 +20,9 @@ cmp.setup({
             ellipsis_char = '...', -- the truncated part when popup menu exceed maxwidth
             before = function(entry, item)
                 local menu_icon = {
-                    nvim_lsp = '',
+                    nvim_lsp = 'λ',
                     vsnip = '',
-                    path = '',
+                    path = '🖫',
                     cmp_zotcite = 'z',
                     cmp_nvim_r = 'R'
                 }
@@ -32,12 +32,15 @@ cmp.setup({
         })
     },
     sources = cmp.config.sources({
+        { name = 'path', option = { trailing_slash = true } },  
+        { name = 'cmp_nvim_r' }, 
+        {name = 'buffer', keyword_length = 2},     
         { name = 'vsnip' },
         { name = 'cmp_zotcite' },
-        { name = 'cmp_nvim_r' },
+    
         { name = 'otter' },
         { name = 'nvim_lsp' },
-        { name = 'path', option = { trailing_slash = true } },
+       
     }),
 mapping = {
    ['<Up>'] = cmp.mapping.select_prev_item(select_opts),

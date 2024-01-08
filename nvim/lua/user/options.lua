@@ -28,5 +28,5 @@ vim.opt.splitright=true         -- Create new vertical windows to the right
 vim.opt.hlsearch=true           -- Highlight search
 vim.opt.incsearch=true          -- Incremental search
 vim.opt.exrc=true               -- Add suport for local .nvim.lua configur
-vim.opt.mouse=""                -- Disable mouse
+--vim.opt.mouse=""                -- Disable mouse
 vim.opt.path=""..vim.fn.getcwd()..", "..vim.fn.getcwd().."/**"
