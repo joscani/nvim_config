@@ -1,4 +1,7 @@
 vim.g.mapleader=' '
+vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]],{noremap=true})
+--vim.keymap.set('t','<C-e>','<A-\\><C-n>') 
+vim.keymap.set('i', '<<', ' %<%')
 --WINDOWS
 -- Vertical split
 vim.keymap.set('n', '<leader>+',vim.cmd.vs)
@@ -13,13 +16,13 @@ vim.keymap.set('n','<C-h>', '<C-w>h')
 -- Move to right window
 vim.keymap.set('n','<C-l>', '<C-w>l')
 -- Increase current window height
-vim.keymap.set('n','<C-Up>', [[<cmd>horizontal resize +5<cr>]])
+vim.keymap.set('n','<C-Down>', [[<cmd>horizontal resize +5<cr>]])
 -- Increase current window width
-vim.keymap.set('n','<C-Left>', [[<cmd>vertical resize +5<cr>]])
+vim.keymap.set('n','<C-Right>', [[<cmd>vertical resize +5<cr>]])
 -- Decrease current window width
-vim.keymap.set('n','<C-Down>', [[<cmd>horizontal resize -5<cr>]])
+vim.keymap.set('n','<C-Up>', [[<cmd>horizontal resize -5<cr>]])
 -- Decrease current window width
-vim.keymap.set('n','<C-Right>', [[<cmd>vertical resize -5<cr>]])
+vim.keymap.set('n','<C-Left>', [[<cmd>vertical resize -5<cr>]])
 -- Close window
 vim.keymap.set('n', '<C-q>', vim.cmd.quit)
 
@@ -64,6 +67,9 @@ vim.keymap.set('n','<F3>',':set list!<CR>')
 --Togle highlight search
 vim.keymap.set('n','<F4>', ':set hls!<CR>')
 
+-- Show relative numbers
+vim.keymap.set('n','<leader>1', ':set relativenumber<CR>') 
+vim.keymap.set('n','<leader>2', ':set norelativenumber<CR>') 
 
 -- VISUAL MODE
 -- Replace
@@ -71,3 +77,20 @@ vim.keymap.set('v','<leader>r',':s/')
 --Yank selection to clipboard
 vim.keymap.set('v','<leader>y','"+y')
 
+-- Delete selection to void register
+vim.keymap.set('v','<leader>d', '"_d')
+
+-- Delete selection into the void register and then paste over it
+vim.keymap.set('v', '<leader>p','_dP')
+
+
+-- MOVEMENT
+-- Join next line keeping cursor position
+vim.keymap.set('n','J','mzJ`z')
+-- faltan por añadir cosas
+-- LOCATION LIST
+--Navigate through location list
+vim.keymap.set('n', '<C-PageUp>', vim.cmd.lprev)
+vim.keymap.set('n', '<C-PageDown>', vim.cmd.linext)
+
+vim.keymap.set('n', '<leader>w', ':w<cr>')
