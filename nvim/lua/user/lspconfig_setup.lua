@@ -1,5 +1,3 @@
-
-
 -- Setup language servers.
 local lspconfig = require('lspconfig')
 
@@ -120,3 +118,14 @@ lspconfig.lua_ls.setup({
 lspconfig.r_language_server.setup({
   capabilities = lsp_capabilities,
 })
+
+lspconfig.lua_ls.setup {
+  settings = {
+    Lua = {
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = {'vim'},
+      },
+    },
+  },
+}

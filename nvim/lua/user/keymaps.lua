@@ -1,7 +1,7 @@
 vim.g.mapleader=' '
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]],{noremap=true})
 --vim.keymap.set('t','<C-e>','<A-\\><C-n>') 
-vim.keymap.set('i', '<<', ' %<%')
+vim.keymap.set('i', '<<' ,' %>%')
 --WINDOWS
 -- Vertical split
 vim.keymap.set('n', '<leader>+',vim.cmd.vs)

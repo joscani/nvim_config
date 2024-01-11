@@ -27,14 +27,15 @@ require("lazy").setup("user.plugins")
 require("user.colorscheme")
 require("user.mason_setup")
 
--- Nvim R and cmp options and shortcuts
+-- Nvim R , lsp and cmp options and shortcuts
 
 require("user.cmp_setup")
 require("user.lspconfig_setup")
 require("user.nvim_r_opt")
 require("user.quarto_opts")
 
--- Lsp config
+-- lualine config
+require("user.lualine")
 
 
 

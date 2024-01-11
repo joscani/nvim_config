@@ -6,6 +6,10 @@ return {
   { 'jalvesaq/Nvim-R', lazy = false },
   { 'jalvesaq/cmp-nvim-r', lazy = false },
   { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+  {
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' }
+},
   -- lsp y cmp
   { 'onsails/lspkind.nvim'},
   { 'hrsh7th/cmp-nvim-lsp'},
