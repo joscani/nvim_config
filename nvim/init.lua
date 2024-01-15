@@ -37,5 +37,7 @@ require("user.quarto_opts")
 -- lualine config
 require("user.lualine")
 
-
+-- telescope
+require("user.telescope")
+require("user.copilot")
 

@@ -1,5 +1,6 @@
 vim.g.mapleader=' '
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]],{noremap=true})
+vim.keymap.set('i', '<C-l>','<C-o>$')
 --vim.keymap.set('t','<C-e>','<A-\\><C-n>') 
 vim.keymap.set('i', '<<' ,' %>%')
 --WINDOWS
@@ -68,8 +69,8 @@ vim.keymap.set('n','<F3>',':set list!<CR>')
 vim.keymap.set('n','<F4>', ':set hls!<CR>')
 
 -- Show relative numbers
-vim.keymap.set('n','<leader>1', ':set relativenumber<CR>') 
-vim.keymap.set('n','<leader>2', ':set norelativenumber<CR>') 
+vim.keymap.set('n','<leader>1', ':set relativenumber<CR>')
+vim.keymap.set('n','<leader>2', ':set norelativenumber<CR>')
 
 -- VISUAL MODE
 -- Replace
@@ -94,3 +95,17 @@ vim.keymap.set('n', '<C-PageUp>', vim.cmd.lprev)
 vim.keymap.set('n', '<C-PageDown>', vim.cmd.linext)
 
 vim.keymap.set('n', '<leader>w', ':w<cr>')
+
+-- Telescope
+-- Muestra la lista de archivos abiertos.
+vim.keymap.set('n', '<leader><space>', '<cmd>Telescope buffers<cr>')
+-- Muestra el historial de archivos.
+vim.keymap.set('n', '<leader>??', '<cmd>Telescope oldfiles<cr>')
+-- Muestra los archivos del directorio de trabajo actual.
+vim.keymap.set('n', '<leader>ff', '<cmd>Telescope find_files<cr>')
+--  Ejecuta una búsqueda interactiva en cada línea código de cada archivo en el directorio actual.
+vim.keymap.set('n', '<leader>fg', '<cmd>Telescope live_grep<cr>')
+--   Muestra la lista de "diagnósticos" del archivo actual. Un diagnóstico puede ser un error de sintaxis, una advertencia o una sugerencia.
+vim.keymap.set('n', '<leader>fd', '<cmd>Telescope diagnostics<cr>')
+-- Ejecuta una búsqueda interactiva en el archivo actual.
+vim.keymap.set('n', '<leader>fs', '<cmd>Telescope current_buffer_fuzzy_find<cr>')

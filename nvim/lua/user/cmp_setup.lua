@@ -32,29 +32,23 @@ cmp.setup({
         })
     },
     sources = cmp.config.sources({
-        { name = 'path', option = { trailing_slash = true } },  
-        { name = 'cmp_nvim_r' }, 
-        {name = 'buffer', keyword_length = 2},     
+        { name = 'path', option = { trailing_slash = true } },
+        { name = 'cmp_nvim_r' },
+        { name = 'nvim_lsp' },
+        { name = 'otter' },
+        { name = 'buffer', keyword_length = 2},
         { name = 'vsnip' },
         { name = 'cmp_zotcite' },
-    
-        { name = 'otter' },
-        { name = 'nvim_lsp' },
-       
     }),
 mapping = {
    ['<Up>'] = cmp.mapping.select_prev_item(select_opts),
    ['<Down>'] = cmp.mapping.select_next_item(select_opts),
-                                                                           
    ['<C-p>'] = cmp.mapping.select_prev_item(select_opts),
    ['<C-n>'] = cmp.mapping.select_next_item(select_opts),
-                                                                           
    ['<C-u>'] = cmp.mapping.scroll_docs(-4),
    ['<C-f>'] = cmp.mapping.scroll_docs(4),
-                                                                           
    ['<C-e>'] = cmp.mapping.abort(),
    ['<CR>'] = cmp.mapping.confirm({select = false}),
-                                                                           
    ['<C-d>'] = cmp.mapping(function(fallback)
      if luasnip.jumpable(1) then
        luasnip.jump(1)

@@ -3,26 +3,36 @@ return {
   "folke/neodev.nvim",
   "folke/which-key.nvim",
   { "folke/neoconf.nvim", cmd = "Neoconf" },
-  { 'jalvesaq/Nvim-R', lazy = false },
-  { 'jalvesaq/cmp-nvim-r', lazy = false },
+  { "jalvesaq/Nvim-R", lazy = false },
+  { "jalvesaq/cmp-nvim-r", lazy = false },
   { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+  { "github/copilot.vim", pts = {} },
   {
-    'nvim-lualine/lualine.nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons' }
+    "nvim-lualine/lualine.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" }
 },
+ -- { "windwp/nvim-autopairs",
+ --   event = "InsertEnter",
+ --   opts = {} -- this is equalent to setup({}) function
+ -- },
   -- lsp y cmp
-  { 'onsails/lspkind.nvim'},
-  { 'hrsh7th/cmp-nvim-lsp'},
-  { 'hrsh7th/cmp-buffer'}, 
-  { 'hrsh7th/cmp-path'}, 
-  { 'hrsh7th/cmp-cmdline'}, 
+  { "onsails/lspkind.nvim"},
+  { "hrsh7th/cmp-nvim-lsp"},
+  { "hrsh7th/cmp-buffer"}, 
+  { "hrsh7th/cmp-path"}, 
+  { "hrsh7th/cmp-cmdline"}, 
   {"hrsh7th/nvim-cmp"},
-  {'folke/tokyonight.nvim', lazy = false, priority = 1000, opts = {},}, 
-  {'hzchirs/vim-material', lazy  = false}, 
+  {"folke/tokyonight.nvim", lazy = false, priority = 1000, opts = {},}, 
+  {"hzchirs/vim-material", lazy  = false}, 
   {"williamboman/mason.nvim", lazy = false},
   --{"nvim-treesitter/nvim-treesitter", lazy = false},
   { "stevearc/dressing.nvim", enabled = false },
-  {
+  {"nvim-telescope/telescope.nvim", tag = '0.1.5',
+-- or                              , branch = "0.1.x",
+      dependencies = { "nvim-lua/plenary.nvim" }
+  },
+
+ {
     "quarto-dev/quarto-nvim",
     opts = {
       lspFeatures = {
@@ -49,7 +59,8 @@ return {
       { "<leader>ctp", ":split term://python<cr>", desc = "terminal: python" },
       { "<leader>ctj", ":split term://julia<cr>", desc = "terminal: julia" },
     },
-  },
+  }, 
+ 
   {
     "jmbuhr/otter.nvim",
     opts = {
@@ -70,7 +81,7 @@ return {
       let g:slime_dispatch_ipython_pause = 100
       function SlimeOverride_EscapeText_quarto(text)
       call v:lua.Quarto_is_in_python_chunk()
-      if exists('g:slime_python_ipython') && len(split(a:text,"\n")) > 1 && b:quarto_is_python_chunk
+      if exists("g:slime_python_ipython") && len(split(a:text,"\n")) > 1 && b:quarto_is_python_chunk
       return ["%cpaste -q\n", g:slime_dispatch_ipython_pause, a:text, "--", "\n"]
       else
       return a:text

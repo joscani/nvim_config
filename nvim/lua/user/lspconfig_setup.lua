@@ -5,7 +5,37 @@ lspconfig.tsserver.setup{}
 --lspconfig.pyright.setup{}
 lspconfig.lua_ls.setup({})
 lspconfig.r_language_server.setup({})
+lspconfig.jedi_language_server.setup{}
 
+--lspconfig.pylsp.setup({})
+--lspconfig.pylsp.setup({
+-- settings = {
+--        pylsp = {
+--            plugins = {
+--                ruff = {
+--                    -- formatter + Linter + isort
+--                    enabled = true,
+--                    extendSelect = { "I" },
+--                },
+--                -- formatter options
+--                black = { enabled = false },
+--                autopep8 = { enabled = false },
+--                yapf = { enabled = false },
+--                -- linter options
+--                pylint = { enabled = false, executable = "pylint" },
+--                pyflakes = { enabled = false },
+--                pycodestyle = { enabled = false },
+--                -- type checker
+--                pylsp_mypy = { enabled = true },
+--                mypy = { enabled = true },
+--                -- auto-completion options
+--                jedi_completion = { fuzzy = true },
+--                -- import sorting
+--                pyls_isort = { enabled = false },
+--            },
+--        },
+--    },
+--})
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 
@@ -118,6 +148,10 @@ lspconfig.lua_ls.setup({
 lspconfig.r_language_server.setup({
   capabilities = lsp_capabilities,
 })
+lspconfig.jedi_language_server.setup({
+  capabilities = lsp_capabilities,
+})
+
 
 lspconfig.lua_ls.setup {
   settings = {
