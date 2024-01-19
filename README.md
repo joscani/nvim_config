@@ -1,6 +1,10 @@
 # nvim_config
 Archivos de configuracion de nvim
 
+## Nota
+En algunas vesiones de nvim me está fallando el tema de colorscheme de vim-material, probad con el tokio night. Hay que modificar el archivo `nvim/lua/user/colorscheme.lua` para comentar los esquemas que no funcionan, 
+y de paso el archivo `nvim/lua/user/plugins.lua` para comentar la carga del colorscheme que no funcione. 
+
 ## Intro
 
 Voy a compartir mis ficheros de configuración de Neovim. 
