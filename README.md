@@ -2,9 +2,9 @@
 Archivos de configuracion de nvim
 
 ## Nota
-En algunas vesiones de nvim me está fallando el tema de colorscheme de vim-material, probad con el tokio night. Hay que modificar el archivo `nvim/lua/user/colorscheme.lua` para comentar los esquemas que no funcionan, 
+* En algunas vesiones de nvim me está fallando el tema de colorscheme de vim-material, probad con el tokio night. Hay que modificar el archivo `nvim/lua/user/colorscheme.lua` para comentar los esquemas que no funcionan, 
 y de paso el archivo `nvim/lua/user/plugins.lua` para comentar la carga del colorscheme que no funcione. 
-
+* Para usar copilot es necesario tener instalado `nodejs +18`
 ## Intro
 
 Voy a compartir mis ficheros de configuración de Neovim. 
