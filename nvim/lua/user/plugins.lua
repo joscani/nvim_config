@@ -6,7 +6,7 @@ return {
   { "jalvesaq/Nvim-R", lazy = false },
   { "jalvesaq/cmp-nvim-r", lazy = false },
   { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
-  { "github/copilot.vim", pts = {} },
+  { "github/copilot.vim" },
   {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" }
@@ -16,18 +16,21 @@ return {
  --   opts = {} -- this is equalent to setup({}) function
  -- },
   -- lsp y cmp
+
+  { "mfussenegger/nvim-dap"},
+  {"rcarriga/nvim-dap-ui", opts = {}},
   { "onsails/lspkind.nvim"},
   { "hrsh7th/cmp-nvim-lsp"},
   { "hrsh7th/cmp-buffer"}, 
   { "hrsh7th/cmp-path"}, 
   { "hrsh7th/cmp-cmdline"}, 
-  {"hrsh7th/nvim-cmp"},
-  {"folke/tokyonight.nvim", lazy = false, priority = 1000, opts = {},}, 
-  {"hzchirs/vim-material", lazy  = false}, 
-  {"williamboman/mason.nvim", lazy = false},
+  { "hrsh7th/nvim-cmp"},
+  { "folke/tokyonight.nvim", lazy = false, priority = 1000, opts = {},}, 
+  { "hzchirs/vim-material", lazy  = false}, 
+  { "williamboman/mason.nvim", lazy = false},
   --{"nvim-treesitter/nvim-treesitter", lazy = false},
   { "stevearc/dressing.nvim", enabled = false },
-  {"nvim-telescope/telescope.nvim", tag = '0.1.5',
+  { "nvim-telescope/telescope.nvim", tag = '0.1.5',
 -- or                              , branch = "0.1.x",
       dependencies = { "nvim-lua/plenary.nvim" }
   },

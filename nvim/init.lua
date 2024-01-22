@@ -41,3 +41,6 @@ require("user.lualine")
 require("user.telescope")
 require("user.copilot")
 
+-- dap
+require("user.dap")
+

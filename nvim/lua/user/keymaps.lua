@@ -66,7 +66,7 @@ vim.keymap.set('n','<leader>e',':Lex 30<CR>')
 --Toggle list
 vim.keymap.set('n','<F3>',':set list!<CR>')
 --Togle highlight search
-vim.keymap.set('n','<F4>', ':set hls!<CR>')
+vim.keymap.set('n','<F5>', ':set hls!<CR>')
 
 -- Show relative numbers
 vim.keymap.set('n','<leader>1', ':set relativenumber<CR>')

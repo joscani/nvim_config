@@ -6,6 +6,7 @@ lspconfig.tsserver.setup{}
 lspconfig.lua_ls.setup({})
 lspconfig.r_language_server.setup({})
 lspconfig.jedi_language_server.setup{}
+lspconfig.julials.setup{}
 
 --lspconfig.pylsp.setup({})
 --lspconfig.pylsp.setup({
@@ -69,8 +70,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- Listar referencias
     bufmap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>')
 
-    -- Mostrar argumentos de función
-    bufmap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<cr>')
+    -- Mostrar argumentos de función <C-k> choca con keybind para mover ventana
+    bufmap('n', '<S-k>', '<cmd>lua vim.lsp.buf.signature_help()<cr>')
 
     -- Renombrar símbolo
     bufmap('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>')
