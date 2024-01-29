@@ -7,6 +7,7 @@ return {
   { "jalvesaq/cmp-nvim-r", lazy = false },
   { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
   { "github/copilot.vim" },
+  { "ThePrimeagen/vim-be-good" },
   {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" }
@@ -27,6 +28,7 @@ return {
   { "hrsh7th/nvim-cmp"},
   { "folke/tokyonight.nvim", lazy = false, priority = 1000, opts = {},}, 
   { "hzchirs/vim-material", lazy  = false}, 
+  {"rose-pine/neovim"},
   { "williamboman/mason.nvim", lazy = false},
   --{"nvim-treesitter/nvim-treesitter", lazy = false},
   { "stevearc/dressing.nvim", enabled = false },
