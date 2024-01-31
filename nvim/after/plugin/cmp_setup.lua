@@ -6,7 +6,7 @@
 
 require'cmp_nvim_r'.setup({
   filetypes = {'r', 'rmd', 'quarto'},
-  doc_width = 58
+  doc_width = 80
   })
 
 local lspkind = require('lspkind')

@@ -1,6 +1,7 @@
 --vim.cmd[[set background=dark]]
 --vim.cmd[[colorscheme tokyonight]]
-vim.cmd[[colorscheme vim-material]]
+--vim.cmd[[colorscheme vim-material]]
+vim.cmd[[colorscheme catppuccin]]
 --vim.cmd[[colorscheme rose-pine]]
 --require('rose-pine').setup({
 --    disable_background = true
