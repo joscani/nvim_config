@@ -47,7 +47,7 @@ vim.keymap.set('n','<S-Right>', vim.cmd.bnext)
 --List buffer
 vim.keymap.set('n','<S-Down>', vim.cmd.buffers)
 --Go to buffer
-vim.keymap.set('n','<S-Up>',':buffer') 
+vim.keymap.set('n','<S-Up>',':buffer')
 --Delete  buffer
 vim.keymap.set('n','<S-Del>',vim.cmd.bdelete)
 
@@ -89,6 +89,8 @@ vim.keymap.set('v', '<leader>p','_dP')
 -- MOVEMENT
 -- Join next line keeping cursor position
 vim.keymap.set('n','J','mzJ`z')
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 -- faltan por añadir cosas
 -- LOCATION LIST
 --Navigate through location list

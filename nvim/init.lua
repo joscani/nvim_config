@@ -21,5 +21,6 @@ require("user.keymaps")
 -- lazyvim after user 
 
 vim.opt.rtp:prepend(lazypath)
-require("lazy").setup("user.plugins")
+--require("lazy").setup("user.plugins")
+require("lazy").setup("plugins")
 
