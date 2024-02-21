@@ -20,12 +20,12 @@ return {
       local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 
       local lspconfig = require("lspconfig")
-      lspconfig.tsserver.setup({
-        capabilities = lsp_capabilities
-      })
-      lspconfig.html.setup({
-        capabilities = lsp_capabilities
-      })
+    --  lspconfig.tsserver.setup({
+    --    capabilities = lsp_capabilities
+    --  })
+    --  lspconfig.html.setup({
+    --    capabilities = lsp_capabilities
+    --  })
 
       lspconfig.lua_ls.setup({
         capabilities = lsp_capabilities,
@@ -36,6 +36,33 @@ return {
       lspconfig.jedi_language_server.setup({
         capabilities = lsp_capabilities,
       })
+
+      lspconfig.julials.setup({
+        capabilities = lsp_capabilities,
+      })
+
+      lspconfig.rust_analyzer.setup({
+        capabilities = lsp_capabilities,
+        settings = {
+            ["rust-analyzer"] = {
+                imports = {
+                    granularity = {
+                        group = "module",
+                    },
+                    prefix = "self",
+                },
+                cargo = {
+                    buildScripts = {
+                        enable = true,
+                    },
+                },
+                procMacro = {
+                    enable = true
+                },
+            }
+        }
+      })
+
 
       lspconfig.lua_ls.setup {
         settings = {
@@ -78,7 +105,7 @@ return {
       bufmap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>')
 
       -- Mostrar argumentos de función <C-k> choca con keybind para mover ventana
-      bufmap('n', '<S-k>', '<cmd>lua vim.lsp.buf.signature_help()<cr>')
+      bufmap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<cr>')
 
       -- Renombrar símbolo
       bufmap('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>')

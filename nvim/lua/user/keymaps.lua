@@ -1,4 +1,7 @@
 vim.g.mapleader=' '
+vim.api.nvim_set_keymap('i', '(', '()<Esc>i', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('i', '{', '{}<Esc>i', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('i', '[', '[]<Esc>i', {noremap = true, silent = true})
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]],{noremap=true})
 vim.keymap.set('i', '<C-l>','<C-o>$')
 --vim.keymap.set('t','<C-e>','<A-\\><C-n>') 
