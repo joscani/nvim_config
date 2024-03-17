@@ -1,2 +1,0 @@
-require("mason").setup()
-

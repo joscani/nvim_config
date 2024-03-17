@@ -1,0 +1,4 @@
+
+return {
+	"eigenfoo/stan-vim",
+}
