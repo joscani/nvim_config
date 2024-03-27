@@ -1,7 +1,16 @@
 return {
     {
     "R-nvim/R.nvim",
-    lazy = false
+    lazy = false,
+    opts = {
+      auto_start = "always",
+      objbr_place = 'console,above',
+   },
+   --vim.cmd("vmap <C-Space> <Plug>RDSendSelection"),
+   --vim.cmd("imap jk <Esc>:call SendLineToR('stay')<CR><Down><Home>i"),
+   vim.keymap.set('n', '<C-Space>', '<Plug>RDSendLine'),
+   vim.keymap.set('v', '<C-Space>', '<Plug>RDSendSelection'),
+
   },
   "R-nvim/cmp-r",
   {
