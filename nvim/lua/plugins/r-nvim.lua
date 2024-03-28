@@ -7,9 +7,9 @@ return {
       objbr_place = 'console,above',
    },
    --vim.cmd("vmap <C-Space> <Plug>RDSendSelection"),
-   --vim.cmd("imap jk <Esc>:call SendLineToR('stay')<CR><Down><Home>i"),
    vim.keymap.set('n', '<C-Space>', '<Plug>RDSendLine'),
    vim.keymap.set('v', '<C-Space>', '<Plug>RDSendSelection'),
+   --vim.keymap.set('i', 'jk',"<Esc>:call <Plug>RDSendLine('stay')<CR><Down><Home>i"),
 
   },
   "R-nvim/cmp-r",

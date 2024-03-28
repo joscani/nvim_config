@@ -11,7 +11,7 @@ if not vim.loop.fs_stat(lazypath) then
   })
 end
 
-
+--vim.cmd("imap jk <Esc>:call RDSendLine()<CR><Down><Home>i")
 
 require("user")
 require("user.options")
