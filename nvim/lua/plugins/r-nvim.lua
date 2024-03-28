@@ -8,6 +8,7 @@ return {
    },
    --vim.cmd("vmap <C-Space> <Plug>RDSendSelection"),
    vim.keymap.set('n', '<C-Space>', '<Plug>RDSendLine'),
+   vim.keymap.set('i', 'jk', '<Esc><Plug>RDSendLine i'),
    vim.keymap.set('v', '<C-Space>', '<Plug>RDSendSelection'),
    --vim.keymap.set('i', 'jk',"<Esc>:call <Plug>RDSendLine('stay')<CR><Down><Home>i"),
 
