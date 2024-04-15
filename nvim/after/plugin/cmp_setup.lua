@@ -4,10 +4,10 @@
 --  }
 --}
 
-require'cmp_nvim_r'.setup({
-  filetypes = {'r', 'rmd', 'quarto'},
-  doc_width = 80
-  })
+--require'cmp_nvim_r'.setup({
+--  filetypes = {'r', 'rmd', 'quarto'},
+--  doc_width = 80
+--  })
 
 local lspkind = require('lspkind')
 local cmp = require('cmp')
@@ -33,7 +33,7 @@ cmp.setup({
     },
     sources = cmp.config.sources({
         { name = 'path', option = { trailing_slash = true } },
-        { name = 'cmp_nvim_r' },
+        { name = 'cmp_r' },
         { name = 'nvim_lsp' },
         { name = 'otter' },
         { name = 'buffer', keyword_length = 2},
