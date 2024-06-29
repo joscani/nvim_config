@@ -37,6 +37,9 @@ return {
         capabilities = lsp_capabilities,
       })
 
+      lspconfig.pyright.setup({
+        capabilities = lsp_capabilities,
+      })
       lspconfig.julials.setup({
         capabilities = lsp_capabilities,
       })

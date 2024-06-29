@@ -26,10 +26,6 @@ return {
   --{ "williamboman/mason.nvim", lazy = false},
   --{"nvim-treesitter/nvim-treesitter", lazy = false},
   { "stevearc/dressing.nvim", enabled = false },
---  { "nvim-telescope/telescope.nvim", tag = '0.1.5',
---  -- or                              , branch = "0.1.x",
---  dependencies = { "nvim-lua/plenary.nvim" }
---},
 
 -- {
 --    "quarto-dev/quarto-nvim",
@@ -68,7 +64,7 @@ return {
 --      },
 --    },
 --  },
-  {
+{
     "jpalardy/vim-slime",
     init = function()
       vim.b["quarto_is_" .. "python" .. "_chunk"] = false
