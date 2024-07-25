@@ -3,15 +3,12 @@ return {
 --  "folke/neodev.nvim",
   "folke/which-key.nvim",
   --{ "folke/neoconf.nvim", cmd = "Neoconf" },
-  { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
-  { "github/copilot.vim" },
   { "ThePrimeagen/vim-be-good" },
-  {
-    "nvim-lualine/lualine.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" }
-  },
+  --{
+  --  "nvim-lualine/lualine.nvim",
+  --  dependencies = { "nvim-tree/nvim-web-devicons" }
+  --},
   -- lsp y cmp
-  { "catppuccin/nvim", name = "catppuccin", priority = 1000 };
   { "mfussenegger/nvim-dap"},
   { "rcarriga/nvim-dap-ui", opts = {}},
   { "onsails/lspkind.nvim"},
