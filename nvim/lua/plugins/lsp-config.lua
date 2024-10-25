@@ -107,8 +107,8 @@ return {
       -- Listar referencias
       bufmap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>')
 
-      -- Mostrar argumentos de función <C-k> choca con keybind para mover ventana
-      bufmap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<cr>')
+      -- Mostrar argumentos de función <C-S-k> choca con keybind para mover ventana
+      bufmap('n', '<C-S-k>', '<cmd>lua vim.lsp.buf.signature_help()<cr>')
 
       -- Renombrar símbolo
       bufmap('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>')

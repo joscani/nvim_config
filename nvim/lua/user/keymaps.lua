@@ -90,8 +90,8 @@ vim.keymap.set('v', '<leader>p','_dP')
 
 
 -- MOVEMENT
--- Join next line keeping cursor position
 vim.keymap.set('n','J','mzJ`z')
+-- Join next line keeping cursor position
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 -- faltan por añadir cosas
