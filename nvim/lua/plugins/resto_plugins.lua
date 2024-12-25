@@ -95,6 +95,7 @@ return {
     end,
   },
 
+
     --{"neovim/nvim-lspconfig"},
     {
     "nvim-treesitter/nvim-treesitter",
@@ -133,6 +134,7 @@ return {
         "julia",
         "r",
       },
+    highlight = {enable = true}, 
     },
   },
 
