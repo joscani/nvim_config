@@ -25,25 +25,22 @@ return {
         -- How the repl window will be displayed
         -- See below for more information
         repl_open_cmd = require("iron.view").right(60),
-        preferred = {
-            markdown = "python", -- Usa el REPL de Python para archivos Markdown
-        },
       },
       -- Iron doesn't set keymaps by default anymore.
       -- You can set them here or manually add keymaps to the functions in iron.core
       keymaps = {
-        send_motion = "<space>rc",
-        visual_send = "<space>rc",
-        send_file = "<space>rf",
-        send_line = "<space>rl",
-        send_mark = "<space>rm",
-        mark_motion = "<space>rmc",
-        mark_visual = "<space>rmc",
-        remove_mark = "<space>rmd",
-        cr = "<space>r<cr>",
-        interrupt = "<space>r<space>",
-        exit = "<space>rq",
-        clear = "<space>rx",
+        send_motion = "<C-space>rc",
+        visual_send = "<C-space>rc",
+        send_file = "<C-space>rf",
+        send_line = "<C-space>rl",
+        send_mark = "<C-space>rm",
+        mark_motion = "<C-space>rmc",
+        mark_visual = "<C-space>rmc",
+        remove_mark = "<C-space>rmd",
+        cr = "<C-space>r<cr>",
+        interrupt = "<C-space>r<space>",
+        exit = "<C-space>rq",
+        clear = "<C-space>rx",
       },
       -- If the highlight is on, you can change how it looks
       -- For the available options, check nvim_set_hl
