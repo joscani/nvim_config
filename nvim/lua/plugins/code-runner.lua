@@ -30,9 +30,9 @@ return {
       -- You can set them here or manually add keymaps to the functions in iron.core
       keymaps = {
         send_motion = "<C-space>rc",
-        visual_send = "<C-space>rc",
+        visual_send = "<C-space>",
         send_file = "<C-space>rf",
-        send_line = "<C-space>rl",
+        send_line = "<C-space>",
         send_mark = "<C-space>rm",
         mark_motion = "<C-space>rmc",
         mark_visual = "<C-space>rmc",
