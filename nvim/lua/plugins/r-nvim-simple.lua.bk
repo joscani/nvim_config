@@ -1,0 +1,7 @@
+return {
+    -- Otros plugins...
+        "R-nvim/R.nvim",
+        lazy = false,
+        version = "~0.1.0"
+}
+
