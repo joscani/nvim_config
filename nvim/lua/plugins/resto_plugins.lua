@@ -59,7 +59,7 @@ return {
 --      },
 --    },
 --  },
-{
+  {
     "jpalardy/vim-slime",
     init = function()
       vim.b["quarto_is_" .. "python" .. "_chunk"] = false
@@ -93,49 +93,73 @@ return {
       vim.g.slime_python_ipython = 1
 
     end,
-  },
-
-
-    --{"neovim/nvim-lspconfig"},
-    {
-    "nvim-treesitter/nvim-treesitter",
-    opts = {
-      ensure_installed = {
-        "bash",
-        "c",
-        "html",
-        "javascript",
-        "json",
-        "lua",
-        "luadoc",
-        "luap",
-        "markdown",
-        "markdown_inline",
-        "python",
-        "query",
-        "regex",
-        "tsx",
-        "typescript",
-        "vim",
-        "vimdoc",
-        "yaml",
-        "bash",
-        "html",
-        "css",
-        "javascript",
-        "json",
-        "lua",
-        "markdown",
-        "markdown_inline",
-        "python",
-        "vim",
-        "yaml",
-        "python",
-        "julia",
-        "r",
-      },
-    highlight = {enable = true}, 
     },
+
+  {
+    "nvim-treesitter/nvim-treesitter",
+    run = ":TSUpdate",
+    config = function ()
+      require("nvim-treesitter.configs").
+      setup({
+        ensure_installed = {
+        "bash",
+        "python",
+        "markdown",
+        "markdown_inline",
+        "r",
+        "rnoweb",
+        "yaml",
+        "latex",
+        "csv",
+        "lua",
+        "julia",
+
+      },
+        highlight = { enable = true },
+      })
+    end
   },
+    --{"neovim/nvim-lspconfig"},
+  --   {
+  --   "nvim-treesitter/nvim-treesitter",
+  --   opts = {
+  --     ensure_installed = {
+  --       "bash",
+  --       "c",
+  --       "html",
+  --       "javascript",
+  --       "json",
+  --       "lua",
+  --       "luadoc",
+  --       "luap",
+  --       "markdown",
+  --       "markdown_inline",
+  --       "python",
+  --       "query",
+  --       "regex",
+  --       "tsx",
+  --       "typescript",
+  --       "vim",
+  --       "vimdoc",
+  --       "yaml",
+  --       "bash",
+  --       "html",
+  --       "css",
+  --       "javascript",
+  --       "json",
+  --       "lua",
+  --       "markdown",
+  --       "markdown_inline",
+  --       "python",
+  --       "vim",
+  --       "yaml",
+  --       "python",
+  --       "julia",
+  --       "r",
+  --       "quarto",
+  --     },
+  --   highlight = {enable = true}, 
+  --   },
+  -- },
 
 }
