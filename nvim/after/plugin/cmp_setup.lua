@@ -20,11 +20,13 @@ cmp.setup({
             ellipsis_char = '...', -- the truncated part when popup menu exceed maxwidth
             before = function(entry, item)
                 local menu_icon = {
-                    nvim_lsp = 'λ',
+                    nvim_lsp = 'λ_nvim_lsp', 
                     vsnip = '',
                     path = '🖫',
                     cmp_zotcite = 'z',
-                    cmp_nvim_r = 'R'
+                    cmp_nvim_r = 'R',
+                    copilot = 'Copilot',
+                    cmp_r = 'ℝ'
                 }
                 item.menu = menu_icon[entry.source.name]
                 return item
@@ -33,6 +35,7 @@ cmp.setup({
     },
     sources = cmp.config.sources({
         { name = 'path', option = { trailing_slash = true } },
+        { name = 'copilot' },
         { name = 'cmp_r' },
         { name = 'nvim_lsp' },
         { name = 'otter' },

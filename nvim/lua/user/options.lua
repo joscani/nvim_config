@@ -16,9 +16,18 @@ vim.opt.pumheight=10 		        -- Menu height (in lines)
 
 vim.opt.autoindent=true		      -- Auto indent
 vim.opt.smartindent=true	      -- Smart indent
-vim.opt.tabstop=2		            -- Show tab as two spacs
-vim.opt.shiftwidth=2		        -- Indent using two columnas
+vim.opt.tabstop=4		            -- Show tab as two spacs
+vim.opt.shiftwidth=4		        -- Indent using two columnas
 vim.opt.expandtab=true		      -- Uses spaces instead of tabs
+
+-- vim.api.nvim_create_autocmd("FileType", {
+--     pattern = "python",
+--     callback = function()
+--         vim.opt_local.tabstop = 4
+--         vim.opt_local.shiftwidth = 4
+--         vim.opt_local.expandtab = true
+--     end,
+-- })
 
 -- more options
 
