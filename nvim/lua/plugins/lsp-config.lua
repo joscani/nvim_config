@@ -15,169 +15,153 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
-
     lazy = false,
     config = function()
-      local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-      local lspconfig = require("lspconfig")
-    --  lspconfig.tsserver.setup({
-    --    capabilities = lsp_capabilities
-    --  })
-    --  lspconfig.html.setup({
-    --    capabilities = lsp_capabilities
-    --  })
-
-      lspconfig.lua_ls.setup({
-        capabilities = lsp_capabilities,
-      })
-      lspconfig.r_language_server.setup({
-        capabilities = lsp_capabilities,
-      })
-      lspconfig.jedi_language_server.setup({
-        capabilities = lsp_capabilities,
-      })
-
-      lspconfig.pyright.setup({
-        capabilities = lsp_capabilities,
-      })
-      lspconfig.julials.setup({
-        capabilities = lsp_capabilities,
-      })
-
-      lspconfig.rust_analyzer.setup({
-        capabilities = lsp_capabilities,
+      -- Configuración de servidores LSP
+      vim.lsp.config("pyright", {
+        capabilities = capabilities,
         settings = {
-            ["rust-analyzer"] = {
-                imports = {
-                    granularity = {
-                        group = "module",
-                    },
-                    prefix = "self",
-                },
-                cargo = {
-                    buildScripts = {
-                        enable = true,
-                    },
-                },
-                procMacro = {
-                    enable = true
-                },
-            }
-        }
-      })
-
-
-      lspconfig.lua_ls.setup {
-        settings = {
-      Lua = {
-        diagnostics = {
-        -- Get the language server to recognize the `vim` global
-        globals = {'vim'},
+          python = {
+            analysis = {
+              typeCheckingMode = "basic",
+              autoSearchPaths = true,
+              useLibraryCodeForTypes = true,
+              diagnosticMode = "workspace",
+              exclude = { "**/venv", "**/__pycache__", "**/node_modules" },
             },
           },
         },
-      }
-      vim.keymap.set('n', '<leader>l', vim.diagnostic.setloclist)
+        on_init = function(client)
+          client.config.settings.python.pythonPath = vim.fn.exepath("python3")
+          return true
+        end,
+      })
 
--- Use LspAttach autocommand to only map the following keys
--- after the language server attaches to the current buffer
-      vim.api.nvim_create_autocmd('LspAttach', {
-        desc = 'Acciones LSP',
+      vim.lsp.config("lua_ls", {
+        capabilities = capabilities,
+        settings = {
+          Lua = {
+            diagnostics = {
+              globals = { "vim" },
+            },
+          },
+        },
+      })
+
+      vim.lsp.config("rust_analyzer", {
+        capabilities = capabilities,
+        settings = {
+          ["rust-analyzer"] = {
+            imports = {
+              granularity = {
+                group = "module",
+              },
+              prefix = "self",
+            },
+            cargo = {
+              buildScripts = {
+                enable = true,
+              },
+            },
+            procMacro = {
+              enable = true,
+            },
+          },
+        },
+      })
+
+      vim.lsp.config("r_language_server", {
+        capabilities = capabilities,
+      })
+
+      vim.lsp.config("jedi_language_server", {
+        capabilities = capabilities,
+      })
+
+      vim.lsp.config("julials", {
+        capabilities = capabilities,
+      })
+
+      -- Keymaps en LspAttach
+      vim.api.nvim_create_autocmd("LspAttach", {
+        desc = "Acciones LSP",
         callback = function()
           local bufmap = function(mode, lhs, rhs)
-            local opts = {buffer = true}
-            vim.keymap.set(mode, lhs, rhs, opts)
+            if rhs ~=nil then
+                local opts = { buffer = true }
+                vim.keymap.set(mode, lhs, rhs, opts)
+            end
           end
 
--- Muestra información sobre símbolo debajo del cursor
-      bufmap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>')
 
-      -- Saltar a definición
-      bufmap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>')
+          bufmap("n", "K", vim.lsp.buf.hover)
+          bufmap("n", "gd", vim.lsp.buf.definition)
+          bufmap("n", "gD", vim.lsp.buf.declaration)
+          bufmap("n", "gi", vim.lsp.buf.implementation)
+          bufmap("n", "go", vim.lsp.buf.type_definition)
+          bufmap("n", "gr", vim.lsp.buf.references)
+          bufmap("n", "<C-S-k>", vim.lsp.buf.signature_help)
+          bufmap("n", "<F2>", vim.lsp.buf.rename)
+          bufmap("n", "<leader>ca", vim.lsp.buf.code_action)
+          bufmap("x", "<F4>", vim.lsp.buf.range_code_action)
+          bufmap("n", "gl", vim.diagnostic.open_float)
+          bufmap("n", "[d", vim.diagnostic.goto_prev)
+          bufmap("n", "]d", vim.diagnostic.goto_next)
+        end,
+      })
 
-      -- Saltar a declaración
-      bufmap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>')
-
-      -- Mostrar implementaciones
-      bufmap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>')
-
-      -- Saltar a definición de tipo
-      bufmap('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>')
-
-      -- Listar referencias
-      bufmap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>')
-
-      -- Mostrar argumentos de función <C-S-k> choca con keybind para mover ventana
-      bufmap('n', '<C-S-k>', '<cmd>lua vim.lsp.buf.signature_help()<cr>')
-
-      -- Renombrar símbolo
-      bufmap('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>')
-
-      -- Listar "code actions" disponibles en la posición del cursor
-      bufmap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<cr>')
-      bufmap('x', '<F4>', '<cmd>lua vim.lsp.buf.range_code_action()<cr>')
-
-      -- Mostrar diagnósticos de la línea actual
-      bufmap('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>')
-
-      -- Saltar al diagnóstico anterior
-      bufmap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
-
-      -- Saltar al siguiente diagnóstico
-      bufmap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>')
-    end
-  })
-
-
-  vim.api.nvim_create_user_command('LspLocList', function(opts)
-      vim.diagnostic.setloclist()
+      -- Comandos LSP
+      vim.api.nvim_create_user_command("LspLocList", function()
+        vim.diagnostic.setloclist()
       end, {})
 
-  vim.api.nvim_create_user_command('LspRename', function(opts)
-      vim.lsp.buf.rename()
-  end, {})
+      vim.api.nvim_create_user_command("LspRename", function()
+        vim.lsp.buf.rename()
+      end, {})
 
-  vim.api.nvim_create_user_command('LspFormat', function(opts)
-      vim.lsp.buf.format({async=true})
-  end, {})
+      vim.api.nvim_create_user_command("LspFormat", function()
+        vim.lsp.buf.format({ async = true })
+      end, {})
 
+      -- Signos en el gutter
+      local sign = function(opts)
+        vim.fn.sign_define(opts.name, {
+          texthl = opts.name,
+          text = opts.text,
+          numhl = "",
+        })
+      end
 
-  local sign = function(opts)
-    vim.fn.sign_define(opts.name, {
-      texthl = opts.name,
-      text = opts.text,
-      numhl = ''
-    })
-  end
+      sign({ name = "DiagnosticSignError", text = "✘" })
+      sign({ name = "DiagnosticSignWarn",  text = "▲" })
+      sign({ name = "DiagnosticSignHint",  text = "⚑" })
+      sign({ name = "DiagnosticSignInfo",  text = "" })
 
-  sign({name = 'DiagnosticSignError', text = '✘'})
-  sign({name = 'DiagnosticSignWarn', text = '▲'})
-  sign({name = 'DiagnosticSignHint', text = '⚑'})
-  sign({name = 'DiagnosticSignInfo', text = ''})
+      -- Config diagnósticos
+      vim.diagnostic.config({
+        virtual_text = false,
+        severity_sort = true,
+        float = {
+          border = "rounded",
+          source = "always",
+          header = "",
+          prefix = "",
+        },
+      })
 
-  vim.diagnostic.config({
-    virtual_text = false,
-    severity_sort = true,
-    float = {
-      border = 'rounded',
-      source = 'always',
-      header = '',
-      prefix = '',
-    },
-  })
+      -- Bordes redondeados para hover y firmas
+      vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+        vim.lsp.handlers.hover,
+        { border = "rounded" }
+      )
 
-  vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
-    vim.lsp.handlers.hover,
-    {border = 'rounded'}
-  )
-
-  vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
-    vim.lsp.handlers.signature_help,
-    {border = 'rounded'}
-  )
-      end,
-    },
+      vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
+        vim.lsp.handlers.signature_help,
+        { border = "rounded" }
+      )
+    end,
+  },
 }
-
 
